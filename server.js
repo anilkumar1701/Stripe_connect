@@ -11,7 +11,7 @@ let userController = require('./user/userController');
 let cardsController = require('./cards/cardsController');
 let userValidator = require('./user/userValidator');
 let adminValidator = require('./admin/adminValidator');
-let cardsValidator = require('./cards/cardValidator');
+let cardsValidator = require('./cards/cardsValidator');
 
 const app = express();
 config = require('config');
@@ -24,21 +24,18 @@ connection.connect(function (err) {
     }
 });
 
-app.post('/user/register',         userValidator.userRegistration,userController.userRegister);
-
+app.post('/user/register', userValidator.userRegistration, userController.userRegister);
 app.post('/user/login', userController.userLogin);
 app.post('/user/logout', userController.userLogout);
-
 app.post('admin/reg', adminValidator.adminRegistration,adminController.adminRegister);
 app.post('/admin/login', adminController.adminLogin);
 app.get('/admin/logout', adminController.adminLogout);
-app.get('/getBookings', userController.getBookings);
-app.post('/createBooking', userController.createBookings);
+app.post('/createBookin', userController.createBooking);
+app.get('/getBooking', userController.getBooking);
 app.post('/addCard', cardsValidator.createCard,cardsController.createCard);
 app.get('/getCards', cardsController.getCards);
 app.post('/deleteCard', cardsController.deleteCard);
-app.post('/walletAddition', cardsController.walletAmount);
-app.post('/makePayment', cardsController.makePAyment);
+app.post('/makePayment', cardsController.createPayment);
 
 const server = app.listen(port, function (err, data) {
     console.log(`Server running at ${port} `);

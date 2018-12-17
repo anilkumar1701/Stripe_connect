@@ -55,16 +55,11 @@ exports.responseMessageCode = {
     DATA_INSERTED: 'DATA INSERTED SUCCESSFULLY',
     ACTION_COMPLETE: 'ACTION COMPLETE',
     ERROR: 'ERROR',
-    NOT_FOUND: 'NOT_FOUND'
+    NOT_FOUND: 'NOT_FOUND',
+    ALREADY_EXISTS: 'ALREADY_EXISTS',
+    NO_CARD: 'NO_CARD'
 
 }
-
-exports.responseFlags = {};
-define(exports.responseFlags, 'PARAMETER_MISSING', 100);
-define(exports.responseFlags, 'ERROR', 400);
-define(exports.responseFlags, 'SUCCESS', 200);
-define(exports.responseFlags, 'NOT_FOUND', 404);
-
 
 module.exports ={
     alreadyExists : alreadyExists

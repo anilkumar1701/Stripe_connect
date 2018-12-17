@@ -1,17 +1,14 @@
 const Joi                                           = require('joi');
 
-exports.userRegistration              = userRegistration;
+exports.createCard              = createCard;
 
-
-
-
-function userRegistration(req, res, next) {
+function createCard(req, res, next) {
     var schema = Joi.object().keys({
-        name          : Joi.string().required(),
-        phone         : Joi.string().required(),
-        email         : Joi.string().required(),
-        address       : Joi.string().optional(),
-        password      : Joi.string().required(),
+        userid:joi.number(),
+        card_number: joi.string(),
+        exp_month: joi.number(),
+        exp_year:joi.number(),
+        cvv:joi.number()
     });
     var validFields = validateFields(req.body, res, schema);
     if (validFields) {
